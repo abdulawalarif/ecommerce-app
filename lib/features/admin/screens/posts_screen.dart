@@ -48,40 +48,40 @@ class _PostsScreenState extends State<PostsScreen> {
         ? const Loader()
         : Scaffold(
             body: GridView.builder(
+              // physics: ScrollPhysics(),
               itemCount: products!.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2),
               itemBuilder: (context, index) {
                 final productData = products![index];
-                return SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 140,
-                        child: SingleProduct(
-                          image: productData.images[0],
-                        ),
+                return Column(
+                  children: [
+                    SizedBox(
+                      height: 120,
+                      child: SingleProduct(
+                        image: productData.images[0],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Expanded(
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Center(
                             child: Text(
                               productData.name,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
                             ),
                           ),
-                          IconButton(
-                            onPressed: () => deleteProduct(productData, index),
-                            icon: const Icon(
-                              Icons.delete_outline,
-                            ),
+                        ),
+                        IconButton(
+                          onPressed: () => deleteProduct(productData, index),
+                          icon: const Icon(
+                            Icons.delete_outline,
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                  ],
                 );
               },
             ),

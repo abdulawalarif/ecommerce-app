@@ -129,14 +129,17 @@ class _CartScreenState extends State<CartScreen> {
               height: 1,
             ),
             const SizedBox(height: 5),
-            ListView.builder(
-              itemCount: user.cart.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return CartProduct(
-                  index: index,
-                );
-              },
+            Container(
+              height: 400,
+              child: ListView.builder(
+                itemCount: user.cart.length,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return CartProduct(
+                    index: index,
+                  );
+                },
+              ),
             ),
           ],
         ),

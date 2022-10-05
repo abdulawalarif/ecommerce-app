@@ -4,6 +4,8 @@ import 'package:ecommerce_app/features/admin/screens/orders_screen.dart';
 import 'package:ecommerce_app/features/admin/screens/posts_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../account/services/account_services.dart';
+
 class AdminScreen extends StatefulWidget {
   const AdminScreen({Key? key}) : super(key: key);
 
@@ -48,6 +50,12 @@ class _AdminScreenState extends State<AdminScreen> {
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                 ),
+              ),
+              GestureDetector(
+                child: Icon(Icons.logout),
+                onTap: () {
+                  AccountServices().logOut(context);
+                },
               )
             ],
           ),
